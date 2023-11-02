@@ -1,18 +1,23 @@
 import React, { Fragment } from "react";
+import styled from "styled-components";
 import "./App.css";
 
-//components
-import InputTodo from "./components/InputTodo";
-import ListTodos from "./components/ListTodos";
+import Navigation from "./Navigation";
+
+// const AppContainer = styled.div`
+//   max-width: 1200px;
+//   margin: 0 auto;
+// `;
 
 function App() {
   return (
+    // <AppContainer>
     <Fragment>
       <div className="container">
-        <InputTodo />
-        <ListTodos />
+        <Navigation />
       </div>
     </Fragment>
+    // </AppContainer>
   );
 }
 
