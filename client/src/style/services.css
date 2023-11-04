@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* FOOTER */
+/* FOOTER */
+/* FOOTER */
+
+
+
+
+.container-reparation {
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.158);
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  box-shadow: 0 0 15px black;
+  display: grid;
+}
+
+.title-reparation {
+  color: rgb(0, 0, 0);
+  font-weight: 300;
+  text-align: center;
+}
+
+.bloc-reparation {
+  width: 100px;
+  justify-self: center;
+  align-self: center;
+  padding: 40px;
+}
+
+.img-reparation {
+  width: 100px;
+}
+
+.big-title {
+  text-align: center;
+  padding: 50px;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0 0 15px black;
+  background-color: rgba(0, 0, 0, 0.473);
+  letter-spacing: 0.7px;
+}
+
+@media screen and (min-width: 500px) {
+  .container-reparation {
+    display: grid;
+    grid-template-columns: [] 1fr [] 1fr [];
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .container-reparation {
+    grid-template-columns: [] 1fr [] 1fr [] 1fr [];
+  }
+
+  .big-title {
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .container-reparation {
+    grid-template-columns: [] 1fr [] 1fr [] 1fr [] 1fr [];
+  }
+
+  .title-reparation {
+    font-size: 22px;
+  }
+
+  .big-title {
+    font-size: 30px;
+  }
+}
+
+.container-repa-about {
+  margin-top: 80px;
+}
+
+  .page {
+    margin-top: 150px;
+  }
+  
+  .bloc-repa-about {
+    width: 80%;
+    margin-left: 10%;
+    background-color: rgba(128, 128, 128, 0.322);
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .bloc-repa-about > p {
+    padding: 20px;
+  }
+  
+  .title-repa-about {
+    color: rgb(208, 0, 0);
+    padding: 20px;
+    font-weight: 600;
+  }
+  .bloc-repa-about p{
+    color:black;
+    font-weight: 500;
+
+  }
+  span {
+    border-bottom: 1px solid rgb(255, 193, 24);
+  }
+  
+  @media screen and (min-width: 600px) {
+    .container-repa-about {
+      display: grid;
+      grid-template-columns: [] 1fr [] 1fr [];
+    }
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .title-repa-about {
+      font-size: 25px;
+    }
+  
+    .bloc-repa-about > p {
+      font-size: 20px;
+    }
+  }

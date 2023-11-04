@@ -8,6 +8,7 @@ import Connexion from "./pages/connexion";
 import Services from "./pages/services";
 import Avis from "./pages/avis";
 import Admin from "./pages/admin";
+import ApiMaps from "./components/ApiMaps.js";
 import Error from "./pages/error";
 
 export default function Navigation() {
@@ -20,7 +21,8 @@ export default function Navigation() {
           <Route path="/connexion" element={<Connexion />} />
           <Route path="/services" element={<Services />} />
           <Route path="/avis" element={<Avis />} />
-          <Route path="/admin" element={<Admin />}/>
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/api" element={<ApiMaps />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>

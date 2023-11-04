@@ -4,7 +4,7 @@ import React from "react";
 import InputTodo from "../components/InputTodo"
 import ListTodos from "../components/ListTodos";
 
-export default function avis() {
+export default function Avis() {
   return (
     <div>
       avis
