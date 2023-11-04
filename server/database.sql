@@ -18,7 +18,7 @@ CREATE TABLE
 
 CREATE TABLE
     connexion(
-        connexion_id VARCHAR(255),
+        user_id SERIAL PRIMARY KEY,
         role VARCHAR(255),
         nom VARCHAR(255),
         prenom VARCHAR(255),
