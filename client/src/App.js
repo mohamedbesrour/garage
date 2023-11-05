@@ -4,20 +4,20 @@ import "./App.css";
 
 import Navigation from "./Navigation";
 
-// const AppContainer = styled.div`
-//   max-width: 1200px;
-//   margin: 0 auto;
-// `;
+const AppContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
 
 function App() {
   return (
-    // <AppContainer>
+ <AppContainer>
     <Fragment>
-      <div className="container">
+      <div>
         <Navigation />
       </div>
     </Fragment>
-    // </AppContainer>
+   </AppContainer>
   );
 }
 

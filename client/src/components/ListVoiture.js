@@ -14,7 +14,7 @@ import EditVoiture from "./EditVoiture";
 const ListVoitures = () => {
   const [voitures, setVoitures] = useState([]);
 
-  // pour supprimer un commentaire
+  // pour supprimer une voiture
   const deleteVoiture = async (id) => {
     try {
       const deleteVoiture = await fetch(`http://localhost:5000/voiture/${id}`, {
@@ -48,14 +48,13 @@ const ListVoitures = () => {
       <table className="table">
         <thead>
           <tr>
-            <th>Commentaire</th>
-            <th>Champ 1</th>
-            <th>Champ 2</th>
-            <th>Champ 3</th>
-            <th>Champ 4</th>
-            <th>Champ 5</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Modèle</th>
+            <th>Année</th>
+            <th>Kilométrage</th>
+            <th>Montant</th>
+            <th>URL image</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
           </tr>
         </thead>
         <tbody>
@@ -65,9 +64,10 @@ const ListVoitures = () => {
               <td>{voiture.annee}</td>
               <td>{voiture.kilometrage}</td>
               <td>{voiture.prix}</td>
-              <td>
+              <td>{voiture.img}</td>
+              {/* <td>
                 <img src={voiture.img} alt="photoo" />
-              </td>
+              </td> */}
 
               <td>
                 <EditVoiture voiture={voiture} />

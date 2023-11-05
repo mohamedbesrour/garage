@@ -28,7 +28,7 @@ const EditUser = ({ connexion }) => {
         }
       );
 
-      window.location = "/";
+      window.location = "/admin";
     } catch (err) {
       console.error(err.message);
     }

@@ -3,6 +3,10 @@ const app = express();
 const cors = require("cors");
 const pool = require("./db"); //pool execute des requete avec postgres
 
+// pour la connexion employé
+ const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+
 //middleware
 app.use(cors());
 app.use(express.json()); //req.body
@@ -159,11 +163,6 @@ app.delete("/voiture/:id", async (req, res) => {
   }
 });
 
-// test formulaire de connexion
-// app.post("/api/login", (req, res) => {
-//   res.json({ message: "Form Submitted" });
-// });
-
 // -------------------------------- //
 // -------CRUD - CONNEXION--------- //
 //--------------------------------- //
@@ -239,7 +238,17 @@ app.delete("/connexion/:id", async (req, res) => {
   }
 });
 
-
+// test formulaire de connexion
+app.post("/connexion/login", (req, res) => {
+  // console.log(req.body);
+  let { email, password } = req.body;
+  if (email == "m.besrour@yahoo.com" && password == "root") {
+    console.log("Valid User");
+  } else {
+    console.log("user non valide");
+  }
+  res.json({ message: "Form Submitted" });
+});
 
 app.listen(5000, () => {
   console.log("le serveur a démarré sur le port 5000");

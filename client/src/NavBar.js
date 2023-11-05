@@ -85,13 +85,16 @@ const NavBar = () => {
           <Link to="/">Home</Link>
         </NavItem>
         <NavItem>
-          <Link to="/connexion">Connexion</Link>
-        </NavItem>
-        <NavItem>
           <Link to="/services">Services</Link>
         </NavItem>
         <NavItem>
-          <Link to="/avis">Commentaire</Link>
+          <Link to="/vente">Vente</Link>
+        </NavItem>
+        <NavItem>
+          <Link to="/connexion">Connexion</Link>
+        </NavItem>
+        <NavItem>
+          <Link to="/employe">Employé</Link>
         </NavItem>
         <NavItem>
           <Link to="/admin">Admin</Link>
@@ -103,13 +106,16 @@ const NavBar = () => {
           <Link to="/">Home</Link>
         </NavItem>
         <NavItem>
-          <Link to="/avis">Connexion</Link>
-        </NavItem>
-        <NavItem>
           <Link to="/services">Services</Link>
         </NavItem>
         <NavItem>
-          <Link to="/services">Commentaire</Link>
+          <Link to="/vente">Vente</Link>
+        </NavItem>
+        <NavItem>
+          <Link to="/connexion">Connexion</Link>
+        </NavItem>
+        <NavItem>
+          <Link to="/employe">Employé</Link>
         </NavItem>
         <NavItem>
           <Link to="/admin">Admin</Link>

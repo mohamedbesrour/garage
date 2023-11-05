@@ -4,9 +4,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 
 import Home from "./pages/home";
-import Connexion from "./pages/connexion";
 import Services from "./pages/services";
-import Avis from "./pages/avis";
+import Vente from "./pages/vente.js";
+import Connexion from "./pages/connexion";
+import Employe from "./pages/employe.js";
 import Admin from "./pages/admin";
 import ApiMaps from "./components/ApiMaps.js";
 import Error from "./pages/error";
@@ -18,9 +19,10 @@ export default function Navigation() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/connexion" element={<Connexion />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/avis" element={<Avis />} />
+          <Route path="/vente" element={<Vente />} />
+          <Route path="/connexion" element={<Connexion />} />
+          <Route path="/employe" element={<Employe />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/api" element={<ApiMaps />} />
           <Route path="*" element={<Error />} />
