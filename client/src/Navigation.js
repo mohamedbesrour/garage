@@ -24,7 +24,6 @@ export default function Navigation() {
           <Route path="/connexion" element={<Connexion />} />
           <Route path="/employe" element={<Employe />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path="/api" element={<ApiMaps />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>

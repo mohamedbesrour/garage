@@ -10,11 +10,9 @@ const Nav = styled.nav`
   color: #fff;
   padding: 1rem;
 `;
-
 const NavItem = styled.li`
   list-style: none;
   margin: 0 1rem;
-
   a {
     color: #fff;
     text-decoration: none;
@@ -30,7 +28,6 @@ const Logo = styled.h1`
   font-size: 1.5rem;
   margin: 0;
 `;
-
 const MobileNavToggle = styled.button`
   display: block;
   background-color: transparent;
@@ -39,11 +36,9 @@ const MobileNavToggle = styled.button`
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-
   &:hover {
     color: #bada55;
   }
-
   @media (min-width: 768px) {
     display: none;
   }
@@ -91,7 +86,7 @@ const NavBar = () => {
           <Link to="/vente">Vente</Link>
         </NavItem>
         <NavItem>
-          <Link to="/connexion">Connexion</Link>
+          <Link to="/connexion">Gestion</Link>
         </NavItem>
         <NavItem>
           <Link to="/employe">Employé</Link>
@@ -112,7 +107,7 @@ const NavBar = () => {
           <Link to="/vente">Vente</Link>
         </NavItem>
         <NavItem>
-          <Link to="/connexion">Connexion</Link>
+          <Link to="/connexion">Gestion</Link>
         </NavItem>
         <NavItem>
           <Link to="/employe">Employé</Link>

@@ -35,7 +35,7 @@ export default function Vente() {
             <div className="car10-info">
               <h2>{voiture.modele}</h2>
               <p>Année : {voiture.annee}</p>
-              <p>Kilométrage : {voiture.kilometrage} km</p>
+              <p>Kilométrage : {voiture.kilometrage}</p>
               <p>Prix : {voiture.prix}</p>
             </div>
           </div>

@@ -4,12 +4,111 @@ const cors = require("cors");
 const pool = require("./db"); //pool execute des requete avec postgres
 
 // pour la connexion employé
- const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 //middleware
 app.use(cors());
 app.use(express.json()); //req.body
+
+//Sécurité
+// import bcrypt from "bcrypt";
+
+// const passwordSecure = "Password1";
+// const isMatch = await bcrypt.compare("Password1", hash)
+// console.log(isMatch)
+const bcrypt = require("bcrypt");
+
+// -------------------------------- //
+// -------CRUD - CONNEXION--------- //
+//--------------------------------- //
+
+app.post("/connexion", async (req, res) => {
+  const salt = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync(req.body.password, salt);
+  try {
+    const { role, nom, prenom, email} = req.body;
+
+    const newConnexion = await pool.query(
+      "INSERT INTO connexion (role, nom, prenom, email, password) VALUES($1, $2, $3, $4, $5) RETURNING *", //insérer INTO nomDeTable (nomDeColone)
+      [role, nom, prenom, email, hash]
+    );
+
+    res.json(newConnexion.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//get all todos  --selectionne toute les voitures
+app.get("/connexion", async (req, res) => {
+  try {
+    const allConnexion = await pool.query("SELECT * FROM connexion");
+    res.json(allConnexion.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//oneUser == todo   --utilisateur en particulier
+app.get("/connexion/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const oneUser = await pool.query(
+      "SELECT * FROM connexion WHERE user_id = $1",
+      [id]
+    );
+
+    res.json(oneUser.rows[0]);
+  } catch (error) {
+    console.error(err.message);
+  }
+});
+
+//updateUser = updateTodo
+app.put("/connexion/:id", async (req, res) => {
+  const salt = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync(req.body.password, salt);
+  try {
+    const { id } = req.params;
+    const { role, nom, prenom, email } = req.body;
+
+    const updateUser = await pool.query(
+      "UPDATE connexion SET role = $1, nom = $2, prenom = $3, email = $4, password = $5 WHERE user_id = $6",
+      [role, nom, prenom, email, hash, id]
+    );
+
+    res.json("Utilisateur mis à jour");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//deleteUser = delete
+app.delete("/connexion/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteUser = await pool.query(
+      "DELETE FROM connexion WHERE user_id = $1",
+      [id]
+    );
+    res.json("Utilisateur supprimé !");
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
+// test formulaire de connexion
+app.post("/connexion/login", (req, res) => {
+  // console.log(req.body);
+  let { email, password } = req.body;
+  if (email == "m.besrour@yahoo.com" && password == "root") {
+    console.log("Valid User");
+  } else {
+    console.log("user non valide");
+  }
+  res.json({ message: "Form Submitted" });
+});
 
 //ROUTES
 
@@ -161,93 +260,6 @@ app.delete("/voiture/:id", async (req, res) => {
   } catch (err) {
     console.log(err.message);
   }
-});
-
-// -------------------------------- //
-// -------CRUD - CONNEXION--------- //
-//--------------------------------- //
-
-app.post("/connexion", async (req, res) => {
-  try {
-    const { role, nom, prenom, email, password } = req.body;
-
-    const newConnexion = await pool.query(
-      "INSERT INTO connexion (role, nom, prenom, email, password) VALUES($1, $2, $3, $4, $5) RETURNING *", //insérer INTO nomDeTable (nomDeColone)
-      [role, nom, prenom, email, password]
-    );
-
-    res.json(newConnexion.rows[0]);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-//get all todos  --selectionne toute les voitures
-app.get("/connexion", async (req, res) => {
-  try {
-    const allConnexion = await pool.query("SELECT * FROM connexion");
-    res.json(allConnexion.rows);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-//oneUser == todo   --utilisateur en particulier
-app.get("/connexion/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const oneUser = await pool.query(
-      "SELECT * FROM connexion WHERE user_id = $1",
-      [id]
-    );
-
-    res.json(oneUser.rows[0]);
-  } catch (error) {
-    console.error(err.message);
-  }
-});
-
-//updateUser = updateTodo
-app.put("/connexion/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { role, nom, prenom, email, password } = req.body;
-
-    const updateUser = await pool.query(
-      "UPDATE connexion SET role = $1, nom = $2, prenom = $3, email = $4, password = $5 WHERE user_id = $6",
-      [role, nom, prenom, email, password, id]
-    );
-
-    res.json("Utilisateur mis à jour");
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-//deleteUser = delete
-app.delete("/connexion/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deleteUser = await pool.query(
-      "DELETE FROM connexion WHERE user_id = $1",
-      [id]
-    );
-    res.json("Utilisateur supprimé !");
-  } catch (err) {
-    console.log(err.message);
-  }
-});
-
-// test formulaire de connexion
-app.post("/connexion/login", (req, res) => {
-  // console.log(req.body);
-  let { email, password } = req.body;
-  if (email == "m.besrour@yahoo.com" && password == "root") {
-    console.log("Valid User");
-  } else {
-    console.log("user non valide");
-  }
-  res.json({ message: "Form Submitted" });
 });
 
 app.listen(5000, () => {
