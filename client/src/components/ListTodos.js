@@ -3,14 +3,18 @@ import React, { Fragment, useEffect, useState } from "react";
 import EditTodo from "./EditTodo";
 
 const ListTodos = () => {
+  // État local pour stocker les données du formulaire
   const [todos, setTodos] = useState([]);
 
   // pour supprimer un commentaire
   const deleteTodo = async (id) => {
     try {
-      const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
-        method: "DELETE",
-      });
+      const deleteTodo = await fetch(
+        `${process.env.REACT_APP_SERVERURL}/commentaire/todos/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       setTodos(
         todos.filter((commentaire) => commentaire.commentaire_id !== id)
@@ -23,7 +27,9 @@ const ListTodos = () => {
   // pour lister tout les commentaires
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:5000/todos");
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVERURL}/commentaire/todos`
+      );
       const jsonData = await response.json(); //await pour dire d'attendre
 
       setTodos(jsonData);

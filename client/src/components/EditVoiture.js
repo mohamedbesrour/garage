@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 const EditVoiture = ({ voiture }) => {
+    // État local pour stocker les données du formulaire
   const [formData, setFormData] = useState({
     modele: voiture.modele,
     annee: voiture.annee,
@@ -19,7 +20,7 @@ const EditVoiture = ({ voiture }) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:5000/voiture/${voiture.voiture_id}`,
+        `http://localhost:5000/voiture/voiture/${voiture.voiture_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

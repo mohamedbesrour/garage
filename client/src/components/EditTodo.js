@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 const EditTodo = ({ commentaire }) => {
+    // État local pour stocker les données du formulaire
   const [description, setDescription] = useState(commentaire.description);
 
   //Edit description function
@@ -9,7 +10,7 @@ const EditTodo = ({ commentaire }) => {
     try {
       const body = { description };
       const response = await fetch(
-        `http://localhost:5000/todos/${commentaire.commentaire_id}`,
+        `http://localhost:5000/commentaire/todos/${commentaire.commentaire_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

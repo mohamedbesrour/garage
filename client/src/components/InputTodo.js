@@ -1,26 +1,28 @@
 import React, { Fragment, useState } from "react";
 
 const InputTodo = () => {
+    // État local pour stocker les données du formulaire
   const [description, setDescription] = useState("");
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
       const body = { description };
-      const response = await fetch("http://localhost:5000/todos", {
+      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/commentaire/todos`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
 
-      window.location = "/";
+      // window.location = "/employe";
+      window.location.reload();
     } catch (err) {
       console.error(err.message);
     }
   };
   return (
     <Fragment>
-      <h1 className="text-center mt-5">Écrit un commentaire !</h1>
+      <h1 className="text-center mt-5">Donne nous ton avis ici</h1>
       <form className="d-flex mt-5" onSubmit={onSubmitForm}>
         <input
           type="text"

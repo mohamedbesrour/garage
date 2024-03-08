@@ -5,19 +5,19 @@ import "./App.css";
 import Navigation from "./Navigation";
 
 const AppContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
+  // max-width: 1520px;
+  // margin: 0 auto;
 `;
 
 function App() {
   return (
- <AppContainer>
-    <Fragment>
-      <div>
-        <Navigation />
-      </div>
-    </Fragment>
-   </AppContainer>
+    <AppContainer>
+      <Fragment>
+        <div>
+          <Navigation />
+        </div>
+      </Fragment>
+    </AppContainer>
   );
 }
 

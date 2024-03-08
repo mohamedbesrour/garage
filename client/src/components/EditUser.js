@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 const EditUser = ({ connexion }) => {
-  //voiture
+    // État local pour stocker les données du formulaire
   const [formData, setFormData] = useState({
     role: connexion.role,
     nom: connexion.nom,

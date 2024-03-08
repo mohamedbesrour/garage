@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 const InputUser = () => {
+  // État local pour stocker les données du formulaire
   const [formData, setFormData] = useState({
     role: "",
     nom: "",
@@ -8,9 +9,10 @@ const InputUser = () => {
     email: "",
     password: "",
   });
-
+// Destructuration des données du formulaire pour une utilisation plus facile
   const { role, nom, prenom, email, password } = formData;
 
+  // Fonction de mise à jour des données du formulaire lorsqu'un champ change
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -18,14 +20,17 @@ const InputUser = () => {
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
+       // Crée un objet 'body' contenant les données du formulaire
       const body = { role, nom, prenom, email, password };
+      
+      // Envoie une requête POST au serveur avec les données du formulaire
       const response = await fetch("http://localhost:5000/connexion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
 
-      window.location = "/";
+      window.location = "/admin";
     } catch (err) {
       console.error(err.message);
     }

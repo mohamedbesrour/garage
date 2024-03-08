@@ -1,5 +1,6 @@
 import React from "react";
 import "../style/services.css";
+import Footer from "../components/Footer";
 
 import Image1 from "../image/1revision.png";
 import Image2 from "../image/2vidange.png";
@@ -135,6 +136,7 @@ export default function Services() {
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

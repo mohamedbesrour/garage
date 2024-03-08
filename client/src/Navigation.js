@@ -9,7 +9,9 @@ import Vente from "./pages/vente.js";
 import Connexion from "./pages/connexion";
 import Employe from "./pages/employe.js";
 import Admin from "./pages/admin";
-import ApiMaps from "./components/ApiMaps.js";
+import Profil from "./pages/profil.js";
+// import ApiMaps from "./components/ApiMaps.js";
+import Auth from "./context/Auth.js";
 import Error from "./pages/error";
 
 export default function Navigation() {
@@ -21,9 +23,12 @@ export default function Navigation() {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/vente" element={<Vente />} />
+          <Route path="/compte" element={<Auth />} />
           <Route path="/connexion" element={<Connexion />} />
           <Route path="/employe" element={<Employe />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/profil" element={<Profil />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>

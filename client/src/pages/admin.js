@@ -11,11 +11,11 @@ export default function Admin() {
     <div>
       admin
       <InputVoiture />
-      resultat
+      Voiture disponible
       <ListVoiture />
       connexion
       <InputUser />
-      resultat
+      Liste des utilisateurs
       <ListUsers />
     </div>
   );

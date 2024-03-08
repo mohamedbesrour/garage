@@ -67,7 +67,7 @@ function LoginBox() {
       email: email,
       password: password,
     };
-    fetch("http://localhost:5000/connexion/login", {
+    fetch(`${process.env.REACT_APP_SERVERURL}/connexion/login`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
@@ -122,7 +122,7 @@ function RegisterBox() {
       email: email,
       password: password,
     };
-    fetch("http://localhost:5000/connexion/login", {
+    fetch(`${process.env.REACT_APP_SERVERURL}/connexion/login`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),

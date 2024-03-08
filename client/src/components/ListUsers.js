@@ -1,14 +1,17 @@
 import React, { Fragment, useEffect, useState } from "react";
-
+// useState est utilisé pour gérer l'état local d'un composant
+// useEffect est utilisé pour gérer les effets secondaires dans un composant,
+// tels que les appels à des API, la mise à jour du DOM
 import EditUser from "./EditUser";
 
 const ListUsers = () => {
+    // État local pour stocker les données du formulaire
   const [users, setUsers] = useState([]);
 
   // pour supprimer un commentaire
   const deleteUser = async (id) => {
     try {
-      const deleteUser = await fetch(`http://localhost:5000/connexion/${id}`, {
+      const deleteUser = await fetch(`http://localhost:5000/connexion/connexion/${id}`, {
         method: "DELETE",
       });
       //                        -  voiture
@@ -21,7 +24,7 @@ const ListUsers = () => {
   // pour lister tout les commentaires
   const getUsers = async () => {
     try {
-      const response = await fetch("http://localhost:5000/connexion");
+      const response = await fetch("http://localhost:5000/connexion/connexion");
       const jsonData = await response.json(); //await pour dire d'attendre
 
       setUsers(jsonData);
@@ -39,12 +42,11 @@ const ListUsers = () => {
       <table className="table">
         <thead>
           <tr>
-            <th>Commentaire</th>
-            <th>Champ 1</th>
-            <th>Champ 2</th>
-            <th>Champ 3</th>
-            <th>Champ 4</th>
-            <th>Champ 5</th>
+            <th>Rôle</th>
+            <th>nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Mot de passe</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>

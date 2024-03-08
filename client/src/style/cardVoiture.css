@@ -1,9 +1,25 @@
-.car10-grid {
+ .pageVente{
+  background-color: beige;
+  width: 80vw;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ .carte{
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  /* height: 400px; */
+  background-color: blueviolet;
+  }
+
+ .car10-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-  .car10-card {
+ .car10-card {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

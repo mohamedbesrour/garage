@@ -1,267 +1,39 @@
+const PORT = process.env.PORT ?? 5000;
 const express = require("express");
+const cors = require("cors"); //middleware qui permet de gérer les autorisations de domaine croisé pour les requêtes,
+const bodyParser = require("body-parser");// pour la connexion employé
+const jwt = require("jsonwebtoken");//Sécurité
 const app = express();
-const cors = require("cors");
-const pool = require("./db"); //pool execute des requete avec postgres
 
-// pour la connexion employé
-const bodyParser = require("body-parser");
-app.use(bodyParser.json());
-
-//middleware
+//use = middleware  fonctions qui traiter les requêtes HTTP req, res
 app.use(cors());
 app.use(express.json()); //req.body
+app.use(bodyParser.json());
 
-//Sécurité
-// import bcrypt from "bcrypt";
+// pour la gestion des routes
+const routeCommentaire = require("./route/route-commentaire");
+const routeVoiture = require("./route/route-voiture");
+const routeConnexion = require("./route/route-connexion");
+const routeAuth = require("./route/route-auth");
+app.use("/commentaire", routeCommentaire);
+app.use("/voiture", routeVoiture);
+app.use("/connexion", routeConnexion);
+app.use("/auth", routeAuth);
 
-// const passwordSecure = "Password1";
-// const isMatch = await bcrypt.compare("Password1", hash)
-// console.log(isMatch)
-const bcrypt = require("bcrypt");
-
-// -------------------------------- //
-// -------CRUD - CONNEXION--------- //
-//--------------------------------- //
-
-app.post("/connexion", async (req, res) => {
-  const salt = bcrypt.genSaltSync(10);
-  const hash = bcrypt.hashSync(req.body.password, salt);
-  try {
-    const { role, nom, prenom, email} = req.body;
-
-    const newConnexion = await pool.query(
-      "INSERT INTO connexion (role, nom, prenom, email, password) VALUES($1, $2, $3, $4, $5) RETURNING *", //insérer INTO nomDeTable (nomDeColone)
-      [role, nom, prenom, email, hash]
-    );
-
-    res.json(newConnexion.rows[0]);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-//get all todos  --selectionne toute les voitures
-app.get("/connexion", async (req, res) => {
-  try {
-    const allConnexion = await pool.query("SELECT * FROM connexion");
-    res.json(allConnexion.rows);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-//oneUser == todo   --utilisateur en particulier
-app.get("/connexion/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const oneUser = await pool.query(
-      "SELECT * FROM connexion WHERE user_id = $1",
-      [id]
-    );
-
-    res.json(oneUser.rows[0]);
-  } catch (error) {
-    console.error(err.message);
-  }
-});
-
-//updateUser = updateTodo
-app.put("/connexion/:id", async (req, res) => {
-  const salt = bcrypt.genSaltSync(10);
-  const hash = bcrypt.hashSync(req.body.password, salt);
-  try {
-    const { id } = req.params;
-    const { role, nom, prenom, email } = req.body;
-
-    const updateUser = await pool.query(
-      "UPDATE connexion SET role = $1, nom = $2, prenom = $3, email = $4, password = $5 WHERE user_id = $6",
-      [role, nom, prenom, email, hash, id]
-    );
-
-    res.json("Utilisateur mis à jour");
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-//deleteUser = delete
-app.delete("/connexion/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deleteUser = await pool.query(
-      "DELETE FROM connexion WHERE user_id = $1",
-      [id]
-    );
-    res.json("Utilisateur supprimé !");
-  } catch (err) {
-    console.log(err.message);
-  }
-});
-
-// test formulaire de connexion
+//  formulaire de connexion admin - employe page
 app.post("/connexion/login", (req, res) => {
-  // console.log(req.body);
-  let { email, password } = req.body;
+  const user = { id: 3 };
+  const token = jwt.sign({ user }, "my_secret_key");
+  res.json({ token: token });
+  const { email, password } = req.body;
   if (email == "m.besrour@yahoo.com" && password == "root") {
-    console.log("Valid User");
+    console.log("Utilisateur valide");
   } else {
-    console.log("user non valide");
+    console.log("Utilisateur non valide");
   }
-  res.json({ message: "Form Submitted" });
+  res.json({ message: "Formulaire soumis" });
 });
 
-//ROUTES
-
-//create a todo
-
-app.post("/todos", async (req, res) => {
-  try {
-    const { description } = req.body;
-    const newTodo = await pool.query(
-      "INSERT INTO commentaire (description) VALUES($1) RETURNING *", //insérer INTO nomDeTable (nomDeColone)
-      [description]
-    );
-
-    res.json(newTodo.rows[0]);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-//get all todos  --selectionne tous commentaire
-
-app.get("/todos", async (req, res) => {
-  try {
-    const allTodos = await pool.query("SELECT * FROM commentaire");
-    res.json(allTodos.rows);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-//get a todo   --commentaire en particulier
-
-app.get("/todos/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const todo = await pool.query(
-      "SELECT * FROM commentaire WHERE commentaire_id = $1",
-      [id]
-    );
-
-    res.json(todo.rows[0]);
-  } catch (error) {
-    console.error(err.message);
-  }
-});
-
-//update a todo
-
-app.put("/todos/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { description } = req.body;
-    const updateTodo = await pool.query(
-      "UPDATE commentaire SET description = $1 WHERE commentaire_id = $2",
-      [description, id]
-    );
-
-    res.json("Commentaire mis à jour");
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-//delete a todo
-
-app.delete("/todos/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deleteTodo = await pool.query(
-      "DELETE FROM commentaire WHERE commentaire_id = $1",
-      [id]
-    );
-    res.json("Commentaire supprimé !");
-  } catch (err) {
-    console.log(err.message);
-  }
-});
-
-// -------------------------------- //
-// --------CRUD - VOITURE---------- //
-//--------------------------------- //
-
-app.post("/voiture", async (req, res) => {
-  try {
-    const { modele, annee, kilometrage, prix, img } = req.body;
-
-    const newVoiture = await pool.query(
-      "INSERT INTO voiture (modele, annee, kilometrage, prix, img) VALUES($1, $2, $3, $4, $5) RETURNING *", //insérer INTO nomDeTable (nomDeColone)
-      [modele, annee, kilometrage, prix, img]
-    );
-
-    res.json(newVoiture.rows[0]);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-//get all todos  --selectionne toute les voitures
-app.get("/voiture", async (req, res) => {
-  try {
-    const allVoiture = await pool.query("SELECT * FROM voiture");
-    res.json(allVoiture.rows);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-//oneVoiture == todo   --voiture en particulier
-app.get("/voiture/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const oneVoiture = await pool.query(
-      "SELECT * FROM voiture WHERE voiture_id = $1",
-      [id]
-    );
-
-    res.json(oneVoiture.rows[0]);
-  } catch (error) {
-    console.error(err.message);
-  }
-});
-
-//updateVoiture = updateTodo
-app.put("/voiture/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { modele, annee, kilometrage, prix, img } = req.body;
-
-    const updateVoiture = await pool.query(
-      "UPDATE voiture SET modele = $1, annee = $2, kilometrage = $3, prix = $4, img = $5 WHERE voiture_id = $6",
-      [modele, annee, kilometrage, prix, img, id]
-    );
-
-    res.json("Voiture mis à jour");
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-//deleteTodo = deleteVoiture
-app.delete("/voiture/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deleteVoiture = await pool.query(
-      "DELETE FROM voiture WHERE voiture_id = $1",
-      [id]
-    );
-    res.json("Voiture supprimé !");
-  } catch (err) {
-    console.log(err.message);
-  }
-});
-
-app.listen(5000, () => {
-  console.log("le serveur a démarré sur le port 5000");
+app.listen(PORT, () => {
+  console.log(`le serveur a démarré sur le port ${PORT}`);
 });

@@ -1,23 +1,15 @@
-// import React, { Fragment, useEffect, useState } from "react";
-
-// const ListVoiture = () => {
-
-// return <div>ListVoiture</div>;
-// };
-
-// export default ListVoiture;
-
 import React, { Fragment, useEffect, useState } from "react";
 
 import EditVoiture from "./EditVoiture";
 
 const ListVoitures = () => {
+    // État local pour stocker les données du formulaire
   const [voitures, setVoitures] = useState([]);
 
   // pour supprimer une voiture
   const deleteVoiture = async (id) => {
     try {
-      const deleteVoiture = await fetch(`http://localhost:5000/voiture/${id}`, {
+      const deleteVoiture = await fetch(`http://localhost:5000/voiture/voiture/${id}`, {
         method: "DELETE",
       });
 
@@ -30,7 +22,7 @@ const ListVoitures = () => {
   // pour lister tout les commentaires
   const getVoitures = async () => {
     try {
-      const response = await fetch("http://localhost:5000/voiture");
+      const response = await fetch("http://localhost:5000/voiture/voiture");
       const jsonData = await response.json(); //await pour dire d'attendre
 
       setVoitures(jsonData);

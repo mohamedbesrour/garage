@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 const InputVoiture = () => {
+    // État local pour stocker les données du formulaire
   const [formData, setFormData] = useState({
     modele: "",
     annee: "",
@@ -19,7 +20,7 @@ const InputVoiture = () => {
     e.preventDefault();
     try {
       const body = { modele, annee, kilometrage, prix, img };
-      const response = await fetch("http://localhost:5000/voiture", {
+      const response = await fetch("http://localhost:5000/voiture/voiture", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

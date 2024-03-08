@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  width: 100%;
   align-items: center;
   background-color: #333;
   color: #fff;
@@ -83,17 +84,20 @@ const NavBar = () => {
           <Link to="/services">Services</Link>
         </NavItem>
         <NavItem>
-          <Link to="/vente">Vente</Link>
+          <Link to="/vente">Ventes</Link>
+        </NavItem>
+        <NavItem>
+          <Link to="/compte">Compte</Link>
         </NavItem>
         <NavItem>
           <Link to="/connexion">Gestion</Link>
         </NavItem>
-        <NavItem>
+        {/* <NavItem>
           <Link to="/employe">Employé</Link>
         </NavItem>
         <NavItem>
           <Link to="/admin">Admin</Link>
-        </NavItem>
+        </NavItem> */}
       </DesktopNav>
 
       <MobileNav style={{ display: isMobileNavOpen ? "flex" : "none" }}>
@@ -104,17 +108,20 @@ const NavBar = () => {
           <Link to="/services">Services</Link>
         </NavItem>
         <NavItem>
-          <Link to="/vente">Vente</Link>
+          <Link to="/vente">Ventes</Link>
+        </NavItem>
+        <NavItem>
+          <Link to="/compte">Compte</Link>
         </NavItem>
         <NavItem>
           <Link to="/connexion">Gestion</Link>
         </NavItem>
-        <NavItem>
+        {/* <NavItem>
           <Link to="/employe">Employé</Link>
         </NavItem>
         <NavItem>
           <Link to="/admin">Admin</Link>
-        </NavItem>
+        </NavItem> */}
       </MobileNav>
     </Nav>
   );
