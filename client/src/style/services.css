@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+.bannerServices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-banner {
+  width: 100%;
+  /* height: auto; */
+  max-height: 900px;
+}
+
+.page-services{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: blueviolet; */
+}
+
+@media screen and (max-width: 800px) {
+
+  .page-services{
+  width: 100%;
+  }
+}
+
 .container-reparation {
   width: 100%;
   background-color: rgba(128, 128, 128, 0.158);
@@ -20,7 +46,7 @@
   width: 100px;
   justify-self: center;
   align-self: center;
-  padding: 40px;
+  padding:  40px 0 40px 0;  /*pour centrer les modules au format mobile*/
 }
 
 .img-reparation {
@@ -41,6 +67,8 @@
   .container-reparation {
     display: grid;
     grid-template-columns: [] 1fr [] 1fr [];
+    /* padding-right: 90px; */
+
   }
 }
 
@@ -55,6 +83,7 @@
 }
 
 @media screen and (min-width: 1500px) {
+
   .container-reparation {
     grid-template-columns: [] 1fr [] 1fr [] 1fr [] 1fr [];
   }

@@ -1,7 +1,10 @@
 import React from "react";
-import "../style/services.css";
 import Footer from "../components/Footer";
 
+import "../style/services.css";
+import "../style/police.css";
+
+import BanniereServices from "../image/atelierGarageAuto.jpg";
 import Image1 from "../image/1revision.png";
 import Image2 from "../image/2vidange.png";
 import Image3 from "../image/3entretien.png";
@@ -13,8 +16,15 @@ import Image8 from "../image/8freins.png";
 
 export default function Services() {
   return (
-    <div>
-      Services
+    <>
+      <div className="bannerServices"><img src={BanniereServices} alt="ImageRévision" class="img-banner" /></div>
+
+    <div className="page-services">
+
+      <div class="titrePolice">
+        <h1 className="h1Services">Nos services</h1>
+      </div> 
+
       <div className="container-reparation">
         <div className="bloc-reparation">
           <h3 className="title-reparation">Révision</h3>
@@ -136,7 +146,9 @@ export default function Services() {
           </p>
         </div>
       </div>
-      <Footer />
+      
     </div>
+    <Footer />
+    </>
   );
 }

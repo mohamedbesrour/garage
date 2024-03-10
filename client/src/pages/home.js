@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../style/home.css";
 import Footer from "../components/Footer";
-import Banniere from "../image/banniereAuto.jpg";
+import Banniere from "../image/banniereGarageAuto.jpg";
 
 import InputTodo from "../components/InputTodo";
 
@@ -28,7 +28,10 @@ export default function Home() {
     <Fragment>
       <div className="banner"><img src={Banniere} alt="ImageRévision" class="img-banner" /></div>
         
-        Home
+      <div class="titrePolice">
+        <h1>AutoPro Garage</h1>
+      </div> 
+
         <InputTodo />
       <table className="table">
         <thead>
