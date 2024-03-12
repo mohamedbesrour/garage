@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom"; pour le redirection de page
 import { useCookies } from "react-cookie";
 import "../style/auth.css";
+
 const Auth = () => {
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [isLogIn, setIsLogin] = useState(true);
@@ -9,7 +9,7 @@ const Auth = () => {
   const [password, setPassword] = useState(null); //stocke les valeurs ...
   const [confirmPassword, setConfirmPassword] = useState(null); //stocke les valeurs ...
   const [error, setError] = useState(null); //affiche msg d'erreur
-  // const history = useHistory();
+
   // console.log(cookies)
 
   //Change le statut connexion ou inscription et reinitialise les msg erreur
@@ -18,14 +18,21 @@ const Auth = () => {
     setIsLogin(status);
   };
 
-
   const handleSubmit = async (e, endpoint) => {
-    e.preventDefault(); // Empêche le rechargement de la page par défaut 
-    if (!isLogIn && password !== confirmPassword) { // Vérifie si les mots de passe correspondent dans s'inscrire
-      setError("Le mot de passe ne correspond pas"); 
+    e.preventDefault(); // Empêche le rechargement de la page par défaut
+    if (!isLogIn && password !== confirmPassword) {
+      // Vérifie si les mots de passe correspondent dans s'inscrire
+      setError("Le mot de passe ne correspond pas");
       return;
     }
-  
+
+// Validation de l'email avec une expression régulière
+const emailRegex = /^[A-Za-z]+@[A-Za-z]+\.[A-Za-z]+$/;  //lettres avant "@" lettres entre "." lettres après.
+if (!emailRegex.test(email)) {
+  setError("Veuillez saisir une adresse e-mail valide.");
+  return;
+}
+
     // Effectue une requête POST vers le serveur avec les informations d'authentification
     const response = await fetch(
       `${process.env.REACT_APP_SERVERURLACCESS}/${endpoint}`,
@@ -35,12 +42,14 @@ const Auth = () => {
         body: JSON.stringify({ email, password }), // Corps de la requête (données au format JSON)
       }
     );
-  
+
     const data = await response.json(); // Convertit la réponse en format JSON
     // console.log(data)
-    if (data.detail) { // Vérifie s'il y a une erreur dans la réponse
+    if (data.detail) {
+      // Vérifie s'il y a une erreur dans la réponse
       setError(data.detail); // Définit un message d'erreur
-    } else { // Si aucune erreur n'est retournée
+    } else {
+      // Si aucune erreur n'est retournée
       // Définit les cookies d'email et de jeton d'authentification avec les données de réponse
       setCookie("Email", data.email);
       setCookie("AuthToken", data.token);
@@ -56,7 +65,7 @@ const Auth = () => {
         <form>
           <h2>{isLogIn ? "Connectez-vous" : "Inscrivez-vous"}</h2>
           <input
-            type="email"
+            type="texte"
             placeholder="email"
             onChange={(e) => setEmail(e.target.value)}
           />
