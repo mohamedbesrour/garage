@@ -1,4 +1,4 @@
-const authController = require("../controller/crud.auth");
+const authController = require("../controller/crud-auth");
 const { Router } = require("express");
 
 const router = Router();

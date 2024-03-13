@@ -3,14 +3,14 @@ import { useCookies } from "react-cookie";
 import "../style/auth.css";
 
 const Auth = () => {
-  const [cookies, setCookie, removeCookie] = useCookies(null);
+  const [cookies, setCookie] = useCookies(null);
   const [isLogIn, setIsLogin] = useState(true);
   const [email, setEmail] = useState(null); //stocke les valeurs des champs de formulaire
   const [password, setPassword] = useState(null); //stocke les valeurs ...
   const [confirmPassword, setConfirmPassword] = useState(null); //stocke les valeurs ...
   const [error, setError] = useState(null); //affiche msg d'erreur
 
-  // console.log(cookies)
+  console.log(cookies)
 
   //Change le statut connexion ou inscription et reinitialise les msg erreur
   const viewLogin = (status) => {
@@ -54,7 +54,7 @@ if (!emailRegex.test(email)) {
       setCookie("Email", data.email);
       setCookie("AuthToken", data.token);
       // Recharge la page pour appliquer les changements (par exemple, rediriger l'utilisateur connecté)
-      window.location.href = "http://localhost:3000/admin";
+      window.location.href = "http://localhost:3000/employe";
       // window.location.reload();
     }
   };
@@ -63,6 +63,7 @@ if (!emailRegex.test(email)) {
     <div className="auth-container">
       <div className="auth-container-box">
         <form>
+          <h1>collaborateur</h1>
           <h2>{isLogIn ? "Connectez-vous" : "Inscrivez-vous"}</h2>
           <input
             type="texte"

@@ -87,7 +87,10 @@ const NavBar = () => {
           <Link to="/vente">Ventes</Link>
         </NavItem>
         <NavItem>
-          <Link to="/compte">Compte</Link>
+          <Link to="/auth-employe">Employe</Link>
+        </NavItem>
+        <NavItem>
+          <Link to="/auth-admin">Admin</Link>
         </NavItem>
         <NavItem>
           <Link to="/connexion">Gestion</Link>
@@ -111,7 +114,10 @@ const NavBar = () => {
           <Link to="/vente">Ventes</Link>
         </NavItem>
         <NavItem>
-          <Link to="/compte">Compte</Link>
+          <Link to="/auth-employe">Employe</Link>
+        </NavItem>
+        <NavItem>
+          <Link to="/auth-admin">Admin</Link>
         </NavItem>
         <NavItem>
           <Link to="/connexion">Gestion</Link>

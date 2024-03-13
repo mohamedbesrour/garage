@@ -15,10 +15,12 @@ const routeCommentaire = require("./route/route-commentaire");
 const routeVoiture = require("./route/route-voiture");
 const routeConnexion = require("./route/route-connexion");
 const routeAuth = require("./route/route-auth");
+const routeAuthAdmin = require("./route/route-auth-admin");
 app.use("/commentaire", routeCommentaire);
 app.use("/voiture", routeVoiture);
 app.use("/connexion", routeConnexion);
 app.use("/auth", routeAuth);
+app.use("/auth-admin", routeAuthAdmin);
 
 //  formulaire de connexion admin - employe page
 app.post("/connexion/login", (req, res) => {

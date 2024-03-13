@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 import "../style/auth.css";
 
-const Auth = () => {
+const AuthAdmin = () => {
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [isLogIn, setIsLogin] = useState(true);
   const [email, setEmail] = useState(null); //stocke les valeurs des champs de formulaire
@@ -63,6 +63,7 @@ if (!emailRegex.test(email)) {
     <div className="auth-container">
       <div className="auth-container-box">
         <form>
+          <h1>administrateur</h1>
           <h2>{isLogIn ? "Connectez-vous" : "Inscrivez-vous"}</h2>
           <input
             type="texte"
@@ -115,4 +116,4 @@ if (!emailRegex.test(email)) {
   );
 };
 
-export default Auth;
+export default AuthAdmin;
