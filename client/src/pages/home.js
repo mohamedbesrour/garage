@@ -11,7 +11,9 @@ export default function Home() {
   // pour lister tout les commentaires
   const getTodos = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/commentaire/todos`);
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVERURL}/commentaire/todos`
+      );
       const jsonData = await response.json(); //await pour dire d'attendre
 
       setTodos(jsonData);
@@ -26,13 +28,15 @@ export default function Home() {
 
   return (
     <Fragment>
-      <div className="banner"><img src={Banniere} alt="ImageRévision" class="img-banner" /></div>
-        
-      <div class="titrePolice">
-        <h1>AutoPro Garage</h1>
-      </div> 
+      <div className="banner">
+        <img src={Banniere} alt="ImageRévision" className="img-banner" />
+      </div>
 
-        <InputTodo />
+      <div className="titrePolice">
+        <h1>AutoPro Garage</h1>
+      </div>
+
+      <InputTodo />
       <table className="table">
         <thead>
           <tr>
@@ -49,8 +53,6 @@ export default function Home() {
       </table>
 
       <div>
-
-
         <Footer />
       </div>
     </Fragment>

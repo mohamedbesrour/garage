@@ -34,19 +34,20 @@ const postConnexion = async (req, res) => {
     ]);
 
     if (!users.rows.length)
-      return res.json({ detail: "Cette utilisateur existe pas" });
+      return res.json({ detail: "Cet utilisateur existe pas" });
 
     const sucess = await bcrypt.compare(password, users.rows[0].password);
     const token = jwt.sign({ email }, "secret", { expiresIn: "1hr" });
 
     if (sucess) {
-      res.json({ email: users.rows[0].email, token });
+      return res.status(200).json({ email: users.rows[0].email, token });
     } else {
-      res.json({ detail: "Login failed" });
+      return res.status(400).json({ detail: "Login failed" });
     }
   } catch (err) {
     console.error(err);
   }
 };
+
 
 module.exports = { postInscription, postConnexion };

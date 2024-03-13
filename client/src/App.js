@@ -3,6 +3,7 @@ import styled from "styled-components";
 import "./App.css";
 
 import Navigation from "./Navigation";
+import { AuthContext, AuthContextProvider } from "./context/authContext";
 
 const AppContainer = styled.div`
   // max-width: 1520px;
@@ -11,6 +12,7 @@ const AppContainer = styled.div`
 
 function App() {
   return (
+    <AuthContextProvider>
     <AppContainer>
       <Fragment>
         <div>
@@ -18,6 +20,7 @@ function App() {
         </div>
       </Fragment>
     </AppContainer>
+  </AuthContextProvider>
   );
 }
 
