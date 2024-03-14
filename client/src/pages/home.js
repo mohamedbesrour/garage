@@ -36,6 +36,31 @@ export default function Home() {
         <h1>AutoPro Garage</h1>
       </div>
 
+{/* <section>
+<div className="container">
+          <div className="form-container">
+            <div className="right-container">
+              <div className="left-inner-container">
+                <Text
+                  cName="actu"
+                  text="Qui sommes nous ?"
+                  text2="Chez Connectify, nous sommes une plateforme sociale dynamique
+                et inclusive, dédiée à connecter les individus du monde
+                entier.
+                Notre objectif est de créer un espace numérique où chacun peut
+                se sentir libre d'exprimer sa véritable identité, de partager
+                ses passions et de tisser des liens authentiques."
+                />
+              </div>
+            </div>
+
+            <div className="left-container">
+              <img src={Image2} />
+            </div>
+          </div>
+        </div>
+</section> */}
+
       <InputTodo />
       <table className="table">
         <thead>

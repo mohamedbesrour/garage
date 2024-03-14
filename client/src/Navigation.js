@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import NavBar from "./NavBar";
@@ -10,12 +10,24 @@ import Connexion from "./pages/connexion";
 import Employe from "./pages/employe.js";
 import Admin from "./pages/admin";
 import Profil from "./pages/profil.js";
-// import ApiMaps from "./components/ApiMaps.js";
 import Auth from "./context/Auth.js";
 import AuthAdmin from "./context/AuthAdmin.js";
 import Error from "./pages/error";
+import { Cookies } from "react-cookie";
 
 export default function Navigation() {
+  const [cookie, setCookie] = useState(null);
+  useEffect(() => {
+    const getCookie = async () => {
+      try {
+        setCookie(document.cookie);
+        // console.log(cookie);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getCookie();
+  }, []);
   return (
     <div>
       <BrowserRouter>
@@ -27,16 +39,14 @@ export default function Navigation() {
 
           <Route path="/auth-employe" element={<Auth />} />
           <Route path="/auth-admin" element={<AuthAdmin />} />
-          
+
           <Route path="/connexion" element={<Connexion />} />
 
-          
           <Route path="/profil" element={<Profil />} />
           <Route path="*" element={<Error />} />
 
           <Route path="/employe" element={<Employe />} />
           <Route path="/admin" element={<Admin />} />
-
         </Routes>
       </BrowserRouter>
     </div>

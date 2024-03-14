@@ -11,6 +11,7 @@ const AuthAdmin = () => {
   const [error, setError] = useState(null); //affiche msg d'erreur
 
   // console.log(cookies)
+  
 
   //Change le statut connexion ou inscription et reinitialise les msg erreur
   const viewLogin = (status) => {
@@ -26,13 +27,14 @@ const AuthAdmin = () => {
       return;
     }
 
-// Validation de l'email avec une expression régulière
-const emailRegex = /^[A-Za-z]+@[A-Za-z]+\.[A-Za-z]+$/;  //lettres avant "@" lettres entre "." lettres après.
-if (!emailRegex.test(email)) {
-  setError("Veuillez saisir une adresse e-mail valide.");
-  return;
-}
+    // Validation de l'email avec une expression régulière
+    const emailRegex = /^[A-Za-z]+@[A-Za-z]+\.[A-Za-z]+$/; //lettres avant "@" lettres entre "." lettres après.
+    if (!emailRegex.test(email)) {
+      setError("Veuillez saisir une adresse e-mail valide.");
+      return;
+    }
 
+    console.log(`${process.env.REACT_APP_SERVERURLACCESS}/${endpoint}`);
     // Effectue une requête POST vers le serveur avec les informations d'authentification
     const response = await fetch(
       `${process.env.REACT_APP_SERVERURLACCESS}/${endpoint}`,

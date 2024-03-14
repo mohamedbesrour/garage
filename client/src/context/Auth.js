@@ -10,7 +10,7 @@ const Auth = () => {
   const [confirmPassword, setConfirmPassword] = useState(null); //stocke les valeurs ...
   const [error, setError] = useState(null); //affiche msg d'erreur
 
-  console.log(cookies)
+  console.log(cookies);
 
   //Change le statut connexion ou inscription et reinitialise les msg erreur
   const viewLogin = (status) => {
@@ -26,12 +26,12 @@ const Auth = () => {
       return;
     }
 
-// Validation de l'email avec une expression régulière
-const emailRegex = /^[A-Za-z]+@[A-Za-z]+\.[A-Za-z]+$/;  //lettres avant "@" lettres entre "." lettres après.
-if (!emailRegex.test(email)) {
-  setError("Veuillez saisir une adresse e-mail valide.");
-  return;
-}
+    // Validation de l'email avec une expression régulière
+    const emailRegex = /^[A-Za-z]+@[A-Za-z]+\.[A-Za-z]+$/; //lettres avant "@" lettres entre "." lettres après.
+    if (!emailRegex.test(email)) {
+      setError("Veuillez saisir une adresse e-mail valide.");
+      return;
+    }
 
     // Effectue une requête POST vers le serveur avec les informations d'authentification
     const response = await fetch(

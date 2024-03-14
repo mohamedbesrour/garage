@@ -1,58 +1,50 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import InputVoiture from "../components/InputVoiture";
 import ListVoiture from "../components/ListVoiture";
 
 import InputUser from "../components/InputUser";
 import ListUsers from "../components/ListUsers";
-// import { AuthContext} from "../context/authContext";
 import { useCookies } from "react-cookie";
+import { AuthContext } from "../context/authContext";
 
 export default function Admin() {
   const navigate = useNavigate();
-  const [removeCookie] = useCookies(null); //pour la déconnexion
+  const [cookies, setCookie, removeCookie] = useCookies(); // Utilisez la syntaxe correcte pour obtenir la fonction removeCookie
+
+  const { isConnect } = useContext(AuthContext);//supp cookies logout
 
   const signOut = () => {
-    // deconnecte en suppriment les cookie AuthToken dans inspecter/Application/Cookies
     try {
-      navigate("/");
+      console.log("signout");
+      removeCookie("Email");
+      removeCookie("access_token");
+      removeCookie("AuthToken");
+      navigate("/"); // Déplacez la navigation après la suppression des cookies
+      window.location.reload();
     } catch (err) {
       console.log("error : ");
       console.log(err);
     }
-
-    console.log("signout");
-    removeCookie("Email");
-    removeCookie("AuthToken");
-    window.location.reload();
   };
-
-  // const signOut = async () => {
-  //   try {
-  //     navigate("/");
-  //   } catch (err) {
-  //     console.log("error : ");
-  //     console.log(err);
-  //   }
-  // };
-
-  return (
-    <div>
-      admin
-      {/* <button className="signout" onClick={signOut}>
-        SIGN OUT
-      </button> */}
-      <button className="signout" onClick={signOut}>
-        SIGN OUT
-      </button>
-      <InputVoiture />
-      Voiture disponible
-      <ListVoiture />
-      connexion
-      <InputUser />
-      Liste des utilisateurs
-      <ListUsers />
-    </div>
-  );
+  if (isConnect) {
+    return (
+      <div>
+        admin
+        <button className="signout" onClick={signOut}>
+          SIGN OUT
+        </button>
+        <InputVoiture />
+        Voiture disponible
+        <ListVoiture />
+        connexion
+        <InputUser />
+        Liste des utilisateurs
+        <ListUsers />
+      </div>
+    );
+  } else {
+    return <Navigate to="/" />;
+  }
 }
