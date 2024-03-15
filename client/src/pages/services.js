@@ -1,18 +1,18 @@
 import React from "react";
-import Footer from "../components/Footer";
+import Footer from "../navigation/Footer";
 
 import "../style/services.css";
 import "../style/police.css";
 
-import BanniereServices from "../image/atelierGarageAuto.jpg";
-import Image1 from "../image/1revision.png";
-import Image2 from "../image/2vidange.png";
-import Image3 from "../image/3entretien.png";
-import Image4 from "../image/4pneumatique.png";
-import Image5 from "../image/5reprogrammation.png";
-import Image6 from "../image/6echappement.png";
-import Image7 from "../image/7mecanique.png";
-import Image8 from "../image/8freins.png";
+import BanniereServices from "../image/imgServices/atelierGarageAuto.jpg";
+import Image1 from "../image/imgServices/1revision.png";
+import Image2 from "../image/imgServices/2vidange.png";
+import Image3 from "../image/imgServices/3entretien.png";
+import Image4 from "../image/imgServices/4pneumatique.png";
+import Image5 from "../image/imgServices/5reprogrammation.png";
+import Image6 from "../image/imgServices/6echappement.png";
+import Image7 from "../image/imgServices/7mecanique.png";
+import Image8 from "../image/imgServices/8freins.png";
 
 export default function Services() {
   return (

@@ -4,3 +4,108 @@
 /* .img-banner {
     width: 100%;
 } */
+/* section commentaire et horaire */
+.containerHome {
+    border: 1px solid black;
+    background-color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    min-height: 480px;
+    min-width: 370px;
+}
+
+.form-container {
+    display: flex;
+}
+
+.right-container {
+    display: flex;
+    flex: 1;
+    height: 50vh;
+    background-color: #20835D;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-inner-container {
+    height: 50%;
+    width: 80%;
+    text-align: center;
+    line-height: 22px;
+}
+
+.left-container {
+    background-color: #00b4cf;
+    width: 50%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 1000px) {
+    .left-container {
+        display: none;
+        
+    }
+
+    .right-container {
+        width: 100%;
+    }
+}
+
+
+
+/* test */
+.my-section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .div1 {
+    flex: 1;
+    background-color: #ccc;
+    padding: 20px;
+    border: 1px solid black;
+  }
+  .div2 {
+    flex: 1;
+    background-color: #eee;
+    padding: 20px;
+    border: 1px solid black;
+  }
+  .div3 {
+    flex: 1;
+    background-color: #eee;
+    padding: 20px;
+    border: 1px solid black;
+  }
+  .div4 {
+    flex: 1;
+    background-color: #eee;
+    padding: 20px;
+    border: 1px solid black;
+  }
+  @media only screen and (max-width: 700px) {
+    .div2 {
+      display: none;
+    }
+    .div3 {
+        display: none;
+    }
+  }
+  
+
+
+
+  /* horaire d'ouverture */
+  .hourly {
+    justify-self: center;
+  }
+  
+  .hourly > li {
+    list-style: none;
+    text-transform: capitalize;
+  }

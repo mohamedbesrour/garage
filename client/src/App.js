@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
-import "./App.css";
 
-import Navigation from "./Navigation";
+import Navigation from "./navigation/Navigation";
 import { AuthContext, AuthContextProvider } from "./context/authContext";
 
 const AppContainer = styled.div`
@@ -13,14 +12,14 @@ const AppContainer = styled.div`
 function App() {
   return (
     <AuthContextProvider>
-    <AppContainer>
-      <Fragment>
-        <div>
-          <Navigation />
-        </div>
-      </Fragment>
-    </AppContainer>
-  </AuthContextProvider>
+      <AppContainer>
+        <Fragment>
+          <div>
+            <Navigation />
+          </div>
+        </Fragment>
+      </AppContainer>
+    </AuthContextProvider>
   );
 }
 

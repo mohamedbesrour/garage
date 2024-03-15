@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import NavBar from "./NavBar";
+import NavBar from "./NavBar.js";
 
-import Home from "./pages/home";
-import Services from "./pages/services";
-import Vente from "./pages/vente.js";
-import Connexion from "./pages/connexion";
-import Employe from "./pages/employe.js";
-import Admin from "./pages/admin";
-import Profil from "./pages/profil.js";
-import Auth from "./context/Auth.js";
-import AuthAdmin from "./context/AuthAdmin.js";
-import Error from "./pages/error";
+import Home from "../pages/home.js";
+import Services from "../pages/services.js";
+import Vente from "../pages/vente.js";
+import Connexion from "../pages/connexion.js";
+import Employe from "../pages/employe.js";
+import Admin from "../pages/admin.js";
+import Profil from "../pages/profil.js";
+import Auth from "../context/Auth.js";
+import AuthAdmin from "../context/AuthAdmin.js";
+import Error from "../pages/error.js";
 import { Cookies } from "react-cookie";
 
 export default function Navigation() {
@@ -28,6 +28,7 @@ export default function Navigation() {
     };
     getCookie();
   }, []);
+
   return (
     <div>
       <BrowserRouter>
