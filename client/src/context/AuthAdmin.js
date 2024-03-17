@@ -28,16 +28,16 @@ const AuthAdmin = () => {
     }
 
     // Validation de l'email avec une expression régulière
-    const emailRegex = /^[A-Za-z]+@[A-Za-z]+\.[A-Za-z]+$/; //lettres avant "@" lettres entre "." lettres après.
+    const emailRegex = /^[A-Za-z0-9]+@[A-Za-z]+\.[A-Za-z]+$/; //lettres avant "@" lettres entre "." lettres après.
     if (!emailRegex.test(email)) {
       setError("Veuillez saisir une adresse e-mail valide.");
       return;
     }
 
-    console.log(`${process.env.REACT_APP_SERVERURLACCESS}/${endpoint}`);
+    console.log(`${process.env.REACT_APP_SERVERURLACCESSADMIN}/${endpoint}`);
     // Effectue une requête POST vers le serveur avec les informations d'authentification
     const response = await fetch(
-      `${process.env.REACT_APP_SERVERURLACCESS}/${endpoint}`,
+      `${process.env.REACT_APP_SERVERURLACCESSADMIN}/${endpoint}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" }, // En-têtes de la requête
@@ -57,6 +57,7 @@ const AuthAdmin = () => {
       setCookie("AuthToken", data.token);
       // Recharge la page pour appliquer les changements (par exemple, rediriger l'utilisateur connecté)
       window.location.href = "http://localhost:3000/admin";
+      alert("Bienvenue, admin !");
       // window.location.reload();
     }
   };
@@ -91,25 +92,19 @@ const AuthAdmin = () => {
           />
           {error && <p>{error}</p>}
         </form>
+
+
         <div className="auth-options">
           <button
             onClick={() => viewLogin(false)}
             style={{
-              backgroundColor: !isLogIn
-                ? "rgb(188, 188, 188)"
-                : "rgb(255, 255, 255)",
-            }}
-          >
+              backgroundColor: !isLogIn ? "rgb(188, 188, 188)": "rgb(255, 255, 255)", }}>
             Sign Up
-          </button>
+           </button>{/* couleur  */}
           <button
             onClick={() => viewLogin(true)}
             style={{
-              backgroundColor: isLogIn
-                ? "rgb(188, 188, 188)"
-                : "rgb(255, 255, 255)",
-            }}
-          >
+              backgroundColor: isLogIn? "rgb(188, 188, 188)": "rgb(255, 255, 255)", }}>
             LogIn
           </button>
         </div>

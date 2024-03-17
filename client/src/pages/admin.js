@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import "../style/admin.css";
 
 import InputVoiture from "../components/InputVoiture";
 import ListVoiture from "../components/ListVoiture";
 
 import InputUser from "../components/InputUser";
 import ListUsers from "../components/ListUsers";
+
+import { Navigate, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { AuthContext } from "../context/authContext";
 
@@ -21,16 +23,20 @@ export default function Admin() {
       removeCookie("Email");
       removeCookie("access_token");
       removeCookie("AuthToken");
+      removeCookie("_gid");
+      removeCookie("_ga");
       navigate("/"); // Déplacez la navigation après la suppression des cookies
       window.location.reload();
+
     } catch (err) {
       console.log("error : ");
       console.log(err);
     }
   };
+  
   if (isConnect) {
     return (
-      <div>
+      <div className="pageAdmin">
         admin
         <button className="signout" onClick={signOut}>
           SIGN OUT

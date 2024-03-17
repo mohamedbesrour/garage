@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
 // import CarCard from "../components/CarCard";
 import Footer from "../navigation/Footer";
-import "../style/cardVoiture.css";
+// import Modal from "../components/Modal"
+import "../style/vente.css";
 
 export default function Vente() {
   const [voitures, setVoitures] = useState([]);

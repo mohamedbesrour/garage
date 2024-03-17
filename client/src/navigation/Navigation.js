@@ -13,7 +13,10 @@ import Profil from "../pages/profil.js";
 import Auth from "../context/Auth.js";
 import AuthAdmin from "../context/AuthAdmin.js";
 import Error from "../pages/error.js";
-import { Cookies } from "react-cookie";
+// import { Cookies } from "react-cookie";
+
+import Modal from "../components/Modal.js"
+
 
 export default function Navigation() {
   const [cookie, setCookie] = useState(null);
@@ -35,6 +38,10 @@ export default function Navigation() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
+
+<Route path="/modal" element={<Modal />} />
+
+
           <Route path="/services" element={<Services />} />
           <Route path="/vente" element={<Vente />} />
 

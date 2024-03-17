@@ -8,11 +8,10 @@ import ListTodos from "../components/ListTodos";
 
 export default function Employe() {
   const navigate = useNavigate();
-  // const { removeCookie } = useContext(useCookies); //pour la déconnexion
-  // console.log(cookies); // pour voir la disparition des cookies après la déconnexion
-  const [cookies, setCookie, removeCookie] = useCookies(); // Utilisez la syntaxe correcte pour obtenir la fonction removeCookie
 
-  const { isConnect } = useContext(AuthContext); //supp cookies logout
+  const [cookies, setCookie, removeCookie] = useCookies();
+
+  const { isConnect } = useContext(AuthContext); //logout supp cookies
 
   const signOut = () => {
     // deconnecte en suppriment les cookie AuthToken dans inspecter/Application/Cookie
@@ -22,6 +21,8 @@ export default function Employe() {
       removeCookie("Email");
       removeCookie("access_token");
       removeCookie("AuthToken");
+      removeCookie("_gid");
+      removeCookie("_ga");
       navigate("/"); // Déplacez la navigation après la suppression des cookies
       window.location.reload();
     } catch (err) {
@@ -30,19 +31,18 @@ export default function Employe() {
     }
   };
 
-if (isConnect){
-  return (
-    <div>
+  if (isConnect) {
+    return (
+      <div>
         <button className="signout" onClick={signOut}>
-          SIGN OUT
+          Déconnexion
         </button>
-      avis
-      <InputTodo />
-      <ListTodos />
-    </div>
-  );
-
-} else {
-   return <Navigate to="/"/> 
+        <h1>Réserver aux personnels</h1>
+        <InputTodo />
+        <ListTodos />
+      </div>
+    );
+  } else {
+    return <Navigate to="/" />;
   }
 }

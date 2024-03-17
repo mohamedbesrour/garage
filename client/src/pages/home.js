@@ -83,25 +83,27 @@ export default function Home() {
           <div className="div4">
             Div 4
             <InputTodo />
-            <table className="table">
-              <thead>
-                {" "}
-                <tr>
-                  <th>Commentaire</th>
-                </tr>{" "}
-              </thead>
-              <tbody>
-                {todos.map((commentaire) => (
-                  <tr key={commentaire.commentaire_id}>
-                    {" "}
-                    <td>{commentaire.description}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
         </article>
       </section>
+
+      <div className="homeTableCommentaire">
+        <table className="table">
+          <thead>
+            {" "}
+            <tr>
+              <th>Commentaire</th>
+            </tr>{" "}
+          </thead>
+          <tbody>
+            {todos.map((commentaire) => (
+              <tr key={commentaire.commentaire_id}>
+                <td>{commentaire.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       <div>
         <Footer />

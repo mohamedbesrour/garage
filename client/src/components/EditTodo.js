@@ -18,7 +18,7 @@ const EditTodo = ({ commentaire }) => {
         }
       );
 
-      window.location = "/employe";
+      // window.location = "/employe";
     } catch (err) {
       console.error(err.message);
     }

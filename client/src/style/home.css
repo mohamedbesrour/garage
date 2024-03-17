@@ -48,9 +48,7 @@
 @media only screen and (max-width: 1000px) {
     .left-container {
         display: none;
-        
     }
-
     .right-container {
         width: 100%;
     }
@@ -97,8 +95,12 @@
     }
   }
   
-
-
+.homeTableCommentaire{
+margin: 0 auto;
+  border: 1px solid red;
+  width: 800px;
+  height: auto;
+}
 
   /* horaire d'ouverture */
   .hourly {
