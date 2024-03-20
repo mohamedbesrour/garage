@@ -1,4 +1,12 @@
 .pageAdmin{
-    padding: 300px;
-    border: 1px solid red;
+    max-width: 80%;
+    min-width: 200px;
+    border: 2px solid red;
+    margin: 0 auto;
+}
+.pageEmploye{
+    max-width: 80%;
+    min-width: 200px;
+    border: 2px solid red;
+    margin: 0 auto;
 }

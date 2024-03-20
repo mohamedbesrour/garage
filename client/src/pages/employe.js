@@ -2,6 +2,10 @@ import React, { useContext } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { AuthContext } from "../context/authContext";
+
+//style
+import "../style/admin.css"
+
 //components
 import InputTodo from "../components/InputTodo";
 import ListTodos from "../components/ListTodos";
@@ -33,7 +37,7 @@ export default function Employe() {
 
   if (isConnect) {
     return (
-      <div>
+      <div className="pageEmploye">
         <button className="signout" onClick={signOut}>
           Déconnexion
         </button>
