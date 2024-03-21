@@ -65,49 +65,20 @@ const Auth = () => {
         <form>
           <h1>collaborateur</h1>
           <h2>{isLogIn ? "Connectez-vous" : "Inscrivez-vous"}</h2>
-          <input
-            type="texte"
-            placeholder="email"
-            onChange={(e) => setEmail(e.target.value)}
+          <input type="texte" placeholder="email" onChange={(e) => setEmail(e.target.value)}
           />
-          <input
-            type="password"
-            placeholder="mot de passe"
-            onChange={(e) => setPassword(e.target.value)}
+          <input type="password"placeholder="mot de passe"onChange={(e) => setPassword(e.target.value)}
           />
           {!isLogIn && (
-            <input
-              type="password"
-              placeholder="confirmé mot de passe"
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          )}
-          <input
-            type="submit"
-            className="create"
-            onClick={(e) => handleSubmit(e, isLogIn ? "login" : "signup")}
-          />
+            <input type="password" placeholder="confirmé mot de passe" onChange={(e) => setConfirmPassword(e.target.value)} />)}
+          <input type="submit"className="create"onClick={(e) => handleSubmit(e, isLogIn ? "login" : "signup")}/>
           {error && <p>{error}</p>}
         </form>
         <div className="auth-options">
-          <button
-            onClick={() => viewLogin(false)}
-            style={{
-              backgroundColor: !isLogIn
-                ? "rgb(188, 188, 188)"
-                : "rgb(255, 255, 255)",
-            }}
-          >
+          <button onClick={() => viewLogin(false)}style={{backgroundColor: !isLogIn ? "rgb(188, 188, 188)": "rgb(255, 255, 255)",}}>
             Sign Up
           </button>
-          <button
-            onClick={() => viewLogin(true)}
-            style={{
-              backgroundColor: isLogIn
-                ? "rgb(188, 188, 188)"
-                : "rgb(255, 255, 255)",
-            }}
-          >
+          <button onClick={() => viewLogin(true)}style={{backgroundColor: isLogIn? "rgb(188, 188, 188)": "rgb(255, 255, 255)",}}>
             LogIn
           </button>
         </div>

@@ -1,4 +1,52 @@
-.root-container {
+/* styleLogin.css */
+
+/* Pour centrer les boutons et les modaux */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajustez la hauteur selon vos besoins */
+  }
+  
+  /* Pour styliser les boutons */
+  .button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Pour styliser le contenu des modaux */
+  .modal-body {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .modal-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .modal-footer {
+    background-color: #f7f7f7;
+    padding: 10px 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+
+/* .root-container {
     width: 100%;
     min-height: 800px;
     height: auto;
@@ -35,11 +83,11 @@
 }
 
 /* Currenly Selected Controller */
-.selected-controller {
+/* .selected-controller {
     transition: border 0.5s ease-out;
-    border-bottom: 2px solid blue;
+    border-bottom: 2px solid blue; */
     /*$var(--bleu-theme)_theme*/
-}
+/* }
 
 .box-controller {
     display: flex;
@@ -52,22 +100,22 @@
 }
 
 .inner-container {
-    /* visibility: hidden; */
-    transition: visibility 0.2 ease-out;
-}
+    /* visibility: hidden; 
+    transition: visibility 0.2 ease-out;*/
+/*}
 
 .inner-container.show {
     visibility: visible;
-}
+} */
 
 /*Header*/
-.header {
+/* .header {
     text-align: center;
     padding: 5px;
     margin-bottom: 17px;
     /* margin-left: 35px; */
     /* margin-right: 35px; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 22px;
     border-bottom: 2px solid blue;
 }
@@ -83,17 +131,17 @@
     flex-direction: column;
     margin-top: 5px;
     margin-bottom: 5px;
-}
+} */
 
-/* Label */
+/* Label 
 .login-label {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 20px;
     font-weight: 600;
     padding-left: 5px;
-}
+}*/
 
-/* Input */
+/* Input 
 .login-input {
     height: 2.1em;
     border-radius: 3px;
@@ -113,9 +161,9 @@
 .login-input:focus {
     border: 2px solid #6565e7;
     box-shadow: 0px 0px 20px rgba(15, 15, 15, 0.2);
-}
+}*/
 
-/* Input Placeholder */
+/* Input Placeholder 
 .login-input::placeholder {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
@@ -123,14 +171,14 @@
 }
 
 .login-btn {
-    padding: 2px 30px;
+    padding: 2px 30px;*/
     /* background-color: #417cef */
-    border: 0;
+    /* border: 0; 
     font-size: 18px;
     border-radius: 3px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    /* font-family: Oxygen, sans-serif; */
-    background-color: rgba(15, 15, 15, 0.3);
+   */ /* font-family: Oxygen, sans-serif; */
+    /* background-color: rgba(15, 15, 15, 0.3);
     margin-top: 20px;
     border: 2px solid #417cef;
     transition: background-color 0.3s ease-out;
@@ -143,4 +191,4 @@
     align-items: center;
     text-align: center;
     gap: 10px;
-}
+} */

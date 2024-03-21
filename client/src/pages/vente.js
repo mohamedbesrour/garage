@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 // import CarCard from "../components/CarCard";
-import Footer from "../navigation/Footer";
+
 // import Modal from "../components/Modal"
 import "../style/vente.css";
 
@@ -51,7 +51,6 @@ export default function Vente() {
           ))}
         </div>
       </div>
-      <Footer />
     </Fragment>
   );
 }

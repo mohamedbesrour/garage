@@ -10,7 +10,6 @@ import Image5 from "../image/imgServices/5reprogrammation.png";
 import Image6 from "../image/imgServices/6echappement.png";
 import Image7 from "../image/imgServices/7mecanique.png";
 import Image8 from "../image/imgServices/8freins.png";
-import Footer from "../navigation/Footer";
 
 export default function Services() {
   return (
@@ -162,7 +161,7 @@ export default function Services() {
           </div>
         </div>
       </div>
-      <Footer />
+
     </>
   );
 }

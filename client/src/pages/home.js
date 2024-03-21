@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../style/home.css";
-import Footer from "../navigation/Footer";
 import Banniere from "../image/banniereGarageAuto.jpg";
-
+import imageHome from "../image/mecanicien2.png";
+import imageHome2 from "../image/mecanicien3.png";
 import InputTodo from "../components/InputTodo";
 
 export default function Home() {
@@ -64,24 +64,32 @@ export default function Home() {
       <section>
         <article className="my-section">
           <div className="div1">
-            <h3 className="footer-title">Nos Horaires d'ouverture</h3>
-            <div className="hourly foot-bloc">
-              <li className="hourly-li">lun : 08:45 - 12:00 | 14:00 - 18:00</li>
-              <li className="hourly-li">mar : 08:45 - 12:00 | 14:00 - 18:00</li>
-              <li className="hourly-li">mer : 08:45 - 12:00 | 14:00 - 18:00</li>
-              <li className="hourly-li">jeu : 08:45 - 12:00 | 14:00 - 18:00</li>
-              <li className="hourly-li">ven : 08:45 - 12:00 | 14:00 - 18:00</li>
-              <li className="hourly-li">sam : 08:45 - 12:00 | </li>
-              <li className="hourly-li">dim : Fermé | </li>
+
+            <div className="containerHoraire">
+            <h3 className="titleHoraire">Nos Horaires d'ouverture</h3>
+            <div className="blocHoraire">
+              <li className="houre-li">lun : 08:45 - 12:00 | 14:00 - 18:00</li>
+              <li className="houre-li">mar : 08:45 - 12:00 | 14:00 - 18:00</li>
+              <li className="houre-li">mer : 08:45 - 12:00 | 14:00 - 18:00</li>
+              <li className="houre-li">jeu : 08:45 - 12:00 | 14:00 - 18:00</li>
+              <li className="houre-li">ven : 08:45 - 12:00 | 14:00 - 18:00</li>
+              <li className="houre-li">sam : 08:45 - 12:00 | </li>
+              <li className="houre-li">dim : Fermé | </li>
             </div>
+            </div>
+
           </div>
-          <div className="div2">Div 2</div>
+          <div className="div2">
+          <img src={imageHome} alt="ImageRévision" className="img-Home" />
+          
+          </div>
         </article>
 
         <article className="my-section">
-          <div className="div3">div3</div>{" "}
+          <div className="div3">
+          <img src={imageHome2} alt="ImageRévision" className="img-Home2" />
+          </div>
           <div className="div4">
-            Div 4
             <InputTodo />
           </div>
         </article>
@@ -90,10 +98,10 @@ export default function Home() {
       <div className="homeTableCommentaire">
         <table className="table">
           <thead>
-            {" "}
+            
             <tr>
               <th>Commentaire</th>
-            </tr>{" "}
+            </tr>
           </thead>
           <tbody>
             {todos.map((commentaire) => (
@@ -103,10 +111,6 @@ export default function Home() {
             ))}
           </tbody>
         </table>
-      </div>
-
-      <div>
-        <Footer />
       </div>
     </Fragment>
   );

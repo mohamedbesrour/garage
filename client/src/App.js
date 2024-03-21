@@ -1,24 +1,18 @@
 import React, { Fragment } from "react";
-import styled from "styled-components";
-
+import { AuthContextProvider } from "./context/authContext";
 import Navigation from "./navigation/Navigation";
-import { AuthContext, AuthContextProvider } from "./context/authContext";
-
-// const AppContainer = styled.div`
-//   // max-width: 1520px;
-//   // margin: 0 auto;
-// <AppContainer></AppContainer>
-//   `;
+import Footer from "./navigation/Footer"
 
 function App() {
   return (
-    <AuthContextProvider>
+    <>
+      <AuthContextProvider>
         <Fragment>
-          <div>
-            <Navigation />
-          </div>
+          <Navigation />
+          <Footer />
         </Fragment>
-    </AuthContextProvider>
+      </AuthContextProvider>
+    </>
   );
 }
 
