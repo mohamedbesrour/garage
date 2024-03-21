@@ -5,13 +5,12 @@ const pool = require("../db");
 // -------CRUD - COMMENTAIRE------- //
 //--------------------------------- //
 
-// Crée un nouveau commentaire dans la base de données
+// Cré un nouveau commentaire dans la base de données
 const postCommentaire = async (req, res) => {
   try {
     const { description } = req.body;
     const newTodo = await pool.query(
       "INSERT INTO commentaire (description) VALUES($1) RETURNING *",
-      //insérer INTO nomDeTable (nomDeColone)
       [description]
     );
     res.json(newTodo.rows[0]);

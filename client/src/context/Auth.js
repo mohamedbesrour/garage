@@ -27,7 +27,7 @@ const Auth = () => {
     }
 
     // Validation de l'email avec une expression régulière
-    const emailRegex = /^[A-Za-z]+@[A-Za-z]+\.[A-Za-z]+$/; //lettres avant "@" lettres entre "." lettres après.
+    const emailRegex = /^[A-Za-z]+@[A-Za-z]+\.[A-Za-z]+$/;                     //lettres avant "@" lettres entre "." lettres après.
     if (!emailRegex.test(email)) {
       setError("Veuillez saisir une adresse e-mail valide.");
       return;

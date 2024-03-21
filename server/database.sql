@@ -15,7 +15,6 @@ CREATE TABLE
         prix VARCHAR(255),
         img VARCHAR(999)
     );
---ajouter des ALTER entre les tables
 CREATE TABLE
     connexion(
         user_id SERIAL PRIMARY KEY,
@@ -25,8 +24,6 @@ CREATE TABLE
         email VARCHAR(255),
         password VARCHAR(255)
     );
-
--- authentification fonctionnel
 CREATE TABLE users (
   email VARCHAR(255) PRIMARY KEY,
   password VARCHAR(255)
