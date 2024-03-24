@@ -53,9 +53,9 @@ export default function Vente() {
 
   return (
 <Fragment>
-  <h3 className="footer-title">
+  <h1 className="h1Services">
     Découvrez notre sélection de véhicules d'occasion
-  </h3>
+  </h1>
   <div className="pageVente">
     <div className="filters">
       <input

@@ -100,13 +100,12 @@
     }
   }
   
-  /* .homeTableCommentaire{
-margin: 0 auto;
-  border: 1px solid red;
-  width: 800px;
+  .homeTableCommentaire{
+  margin: 0 auto;
+  width: 450px;
   height: auto;
 }
-
+/* 
 horaire d'ouverture
   .hourly {
     justify-self: center;

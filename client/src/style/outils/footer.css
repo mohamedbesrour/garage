@@ -86,7 +86,7 @@ ul{
 }
 .footer{
 	background-color: #24262b;
-    padding: 70px 0;
+    padding: 50px 0;
 }
 .footer-col{
    width: 25%;
@@ -96,7 +96,8 @@ ul{
 	font-size: 18px;
 	color: #ffffff;
 	text-transform: capitalize;
-	margin-bottom: 35px;
+  margin-left: 35px;
+	margin-bottom: 25px;
 	font-weight: 500;
 	position: relative;
 }
@@ -127,6 +128,9 @@ ul{
 	color: #ffffff;
 	padding-left: 8px;
 }
+.social-links{
+  margin-left: 35px;
+}
 .footer-col .social-links a{
 	display: inline-block;
 	height: 40px;
@@ -139,10 +143,21 @@ ul{
 	color: #ffffff;
 	transition: all 0.5s ease;
 }
+
 .footer-col .social-links a:hover{
 	color: #24262b;
 	background-color: #ffffff;
 }
+
+.icon {
+  font-size: 26px;
+  margin-top: 7px;
+}
+
+.icon-container {
+  margin-right: 10px;
+}
+
 .copyright {
 	text-align: center; /* Ajout de cette ligne */
 	margin: 0 auto; /* Suppression de margin:auto de justify-self */
@@ -150,7 +165,7 @@ ul{
 	font-weight: 700;
   }
   .copyright > p {
-	padding: 20px;
+	padding: 0px;
 	margin: 0;
 	color: #ffffff;
   }

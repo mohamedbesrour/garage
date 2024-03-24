@@ -1,4 +1,5 @@
 import React from "react";
+import { FaFacebook, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 import "../style/outils/footer.css";
 
 function Footer() {
@@ -41,16 +42,16 @@ function Footer() {
               <h4>À PROPOS</h4>
               <ul>
                 <li>
-                  <a href="/">Accueil</a>
+                  <a href="/" aria-label="Accueil">Accueil</a>
                 </li>
                 <li>
-                  <a href="/services">Services</a>
+                  <a href="/services" aria-label="Services">Services</a>
                 </li>
                 <li>
-                  <a href="/vente">Occasion</a>
+                  <a href="/vente" aria-label="Occasion">Occasion</a>
                 </li>
                 <li>
-                  <a href="/connexion">Gestion</a>
+                  <a href="/connexion" aria-label="Gestion">Gestion</a>
                 </li>
               </ul>
             </div>
@@ -58,7 +59,7 @@ function Footer() {
               <h4>CONTACT</h4>
               <ul>
                 <li>
-                  <a href="#">Jungle Vape</a>
+                  <a href="#">AutoPro Garage</a>
                 </li>
                 <li>
                   <a href="#">66 AV DES CHAMPS ELYSEES</a>
@@ -70,24 +71,24 @@ function Footer() {
                   <a href="#">France</a>
                 </li>
                 <li>
-                  <a href="#">contact@jungle-vape.com</a>
+                  <a href="#">autopro@garage.com</a>
                 </li>
               </ul>
             </div>
             <div className="footer-col">
-              <h4>follow us</h4>
+              <h4>Suivez-nous</h4>
               <div className="social-links">
-                <a href="#">
-                  <i className="fab fa-facebook-f" />
+                <a href="https://www.facebook.com/?locale=fr_FR" className="icon-container">
+                  <FaFacebook className="icon" />
                 </a>
-                <a href="#">
-                  <i className="fab fa-twitter" />
+                <a href="https://twitter.com/?lang=fr" className="icon-container">
+                  <FaTwitter className="icon" />
                 </a>
-                <a href="#">
-                  <i className="fab fa-instagram" />
+                <a href="https://github.com/mohamedbesrour" className="icon-container">
+                  <FaGithub className="icon" />
                 </a>
-                <a href="#">
-                  <i className="fab fa-linkedin-in" />
+                <a href="www.linkedin.com/in/mohamed-besrour-268334181" className="icon-container">
+                  <FaLinkedin className="icon" />
                 </a>
               </div>
             </div>
