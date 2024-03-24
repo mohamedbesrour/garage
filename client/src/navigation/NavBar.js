@@ -7,7 +7,8 @@ const NavBar = () => {
 
   return (
     <Nav>
-      <Logo>Garage Auto</Logo>
+      
+      <Link to="/"><Logo>Garage Auto</Logo></Link>
 
       <MobileNavToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
         {isMobileNavOpen ? "Close" : "Menu"}
@@ -46,7 +47,6 @@ const NavBar = () => {
   );
 };
 
-
 const Nav = styled.nav`
   display: flex;
   justify-content: space-around;
@@ -72,6 +72,7 @@ const NavItem = styled.li`
 const Logo = styled.h1`
   font-size: 1.5rem;
   margin: 0;
+  color: #fff;
 `;
 const MobileNavToggle = styled.button`
   display: block;
