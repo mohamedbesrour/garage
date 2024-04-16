@@ -4,7 +4,7 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const isConnect = document.cookie;
-  // console.log(isConnect);
+  // Pour la connexion des employés
 
   return (
     <AuthContext.Provider value={{ isConnect }}>
