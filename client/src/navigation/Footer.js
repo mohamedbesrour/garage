@@ -18,7 +18,7 @@ function Footer() {
                 </li>
                 <li>
                   <a href="https://www.francenum.gouv.fr/guides-et-conseils/developpement-commercial/site-web/rediger-des-conditions-generales-dutilisation">
-                    C.G.U
+                    C.G.U 
                   </a>
                 </li>
                 <li>
@@ -87,7 +87,7 @@ function Footer() {
                 <a href="https://github.com/mohamedbesrour" className="icon-container">
                   <FaGithub className="icon" />
                 </a>
-                <a href="www.linkedin.com/in/mohamed-besrour-268334181" className="icon-container">
+                <a href="www.linkedin.com/in/mohamed-besrour" className="icon-container">
                   <FaLinkedin className="icon" />
                 </a>
               </div>

@@ -5,7 +5,6 @@ CREATE TABLE
         commentaire_id SERIAL PRIMARY KEY,
         description VARCHAR(255)
     );
-
 CREATE TABLE
     voiture(
         voiture_id SERIAL PRIMARY KEY,

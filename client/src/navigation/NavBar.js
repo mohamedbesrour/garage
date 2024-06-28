@@ -1,4 +1,4 @@
-import React from "react"; //peut-être ajouter React, { useState }
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -7,15 +7,14 @@ const NavBar = () => {
 
   return (
     <Nav>
-      
-      <Link to="/"><Logo>Garage Auto</Logo></Link>
+      <Link to="/"><Logo>Auto Motors</Logo></Link>
 
       <MobileNavToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
         {isMobileNavOpen ? "Close" : "Menu"}
       </MobileNavToggle>
 
       <DesktopNav>
-        <NavItem>
+        <NavItem> 
           <Link to="/">Home</Link>
         </NavItem>
         <NavItem>

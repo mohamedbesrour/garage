@@ -13,7 +13,6 @@ import Admin from "../pages/admin.js";
 import Modal from "../components/Modal.js"
 import Error from "../pages/error.js";
 
-
 export default function Navigation() {
   const [cookie, setCookie] = useState(null);
   useEffect(() => {
