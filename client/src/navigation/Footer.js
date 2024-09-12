@@ -86,7 +86,7 @@ function Footer() {
                 <a href="https://github.com/mohamedbesrour" className="icon-container">
                   <FaGithub className="icon" />
                 </a>
-                <a href="www.linkedin.com/in/mohamed-besrour" className="icon-container">
+                <a href="https://www.linkedin.com/in/mohamed-besrour/" className="icon-container">
                   <FaLinkedin className="icon" />
                 </a>
               </div>

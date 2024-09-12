@@ -1,0 +1,14 @@
+.bloc-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Assure que le bloc occupe toute la hauteur de la fenêtre */
+    background-color: #f8f9fa; /* Couleur d'arrière-plan optionnelle */
+  }
+  
+  .centered-image {
+    
+    max-height: 100%; /* Assure que l'image ne dépasse pas la hauteur de l'écran */
+    width: 100%; /* Assure que l'image ne dépasse pas la largeur de l'écran */
+    object-fit: contain; /* Ajuste l'image pour qu'elle soit entièrement visible */
+  }
